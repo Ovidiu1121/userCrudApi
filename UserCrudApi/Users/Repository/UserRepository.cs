@@ -18,7 +18,7 @@ namespace UserCrudApi.Users.Repository
             this._mapper = mapper;
         }
 
-        public async Task<User> CreateUser(CreateUserRequest request)
+        public async Task<UserDto> CreateUser(CreateUserRequest request)
         {
             var user = _mapper.Map<User>(request);
 
@@ -26,10 +26,10 @@ namespace UserCrudApi.Users.Repository
 
             await _context.SaveChangesAsync();
 
-            return user;
+            return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<User> DeleteUserById(int id)
+        public async Task<UserDto> DeleteUserById(int id)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -37,25 +37,36 @@ namespace UserCrudApi.Users.Repository
 
             await _context.SaveChangesAsync();
 
-            return user;
+            return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<ListUserDto> GetAllAsync()
         {
-            return await _context.Users.ToListAsync();
+            List<User> result = await _context.Users.ToListAsync();
+            
+            ListUserDto listUserDto = new ListUserDto()
+            {
+                userList = _mapper.Map<List<UserDto>>(result)
+            };
+
+            return listUserDto;
         }
 
-        public async Task<User> GetByIdAsync(int id)
+        public async Task<UserDto> GetByIdAsync(int id)
         {
-           return await _context.Users.FirstOrDefaultAsync(x => x.Id.Equals(id));
+            var user = await _context.Users.Where(u => u.Id == id).FirstOrDefaultAsync();
+            
+            return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<User> GetByNameAsync(string name)
+        public async Task<UserDto> GetByNameAsync(string name)
         {
-            return await _context.Users.FirstOrDefaultAsync(x =>x.Name.Equals(name));
+            var user = await _context.Users.Where(u => u.Name.Equals(name)).FirstOrDefaultAsync();
+            
+            return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<User> UpdateUser(int id, UpdateUserRequest request)
+        public async Task<UserDto> UpdateUser(int id, UpdateUserRequest request)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -67,7 +78,7 @@ namespace UserCrudApi.Users.Repository
 
             await _context.SaveChangesAsync();
 
-            return user;
+            return _mapper.Map<UserDto>(user);
         }
     }
 }

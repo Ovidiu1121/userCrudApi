@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "c000e5eb-391d-4f57-ac94-495c00d04ebe",
+		"name": "user_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33660681"
+	},
+	"item": [
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7161/api/v1/User/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7161",
+					"path": [
+						"api",
+						"v1",
+						"User",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByNameRoute",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7161/api/v1/User/Susette",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7161",
+					"path": [
+						"api",
+						"v1",
+						"User",
+						"Susette"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POSTCreateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Alin\",\r\n  \"email\": \"emailll\",\r\n  \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7161/api/v1/User/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7161",
+					"path": [
+						"api",
+						"v1",
+						"User",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUTUpdateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\":\"newEmail\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7161/api/v1/User/update/12",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7161",
+					"path": [
+						"api",
+						"v1",
+						"User",
+						"update",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7161/api/v1/User/delete/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7161",
+					"path": [
+						"api",
+						"v1",
+						"User",
+						"delete",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,4 +1,5 @@
-﻿using UserCrudApi.System.Constant;
+﻿using UserCrudApi.Dto;
+using UserCrudApi.System.Constant;
 using UserCrudApi.System.Exceptions;
 using UserCrudApi.Users.Model;
 using UserCrudApi.Users.Repository.interfaces;
@@ -15,11 +16,11 @@ namespace UserCrudApi.Users.Service
             _repository = repository;
         }
 
-        public async Task<IEnumerable<User>> GetAllUsers()
+        public async Task<ListUserDto> GetAllUsers()
         {
-            IEnumerable<User> users = await _repository.GetAllAsync();
+            ListUserDto users = await _repository.GetAllAsync();
 
-            if (users.Count().Equals(0))
+            if (users.userList.Count().Equals(0))
             {
                 throw new ItemDoesNotExist(Constants.NO_USERS_EXIST);
             }
@@ -27,9 +28,9 @@ namespace UserCrudApi.Users.Service
             return users;
         }
 
-        public async Task<User> GetById(int id)
+        public async Task<UserDto> GetById(int id)
         {
-            User user = await _repository.GetByIdAsync(id);
+            UserDto user = await _repository.GetByIdAsync(id);
 
             if (user == null)
             {
@@ -39,10 +40,10 @@ namespace UserCrudApi.Users.Service
             return user;
         }
 
-        public async Task<User> GetByName(string name)
+        public async Task<UserDto> GetByName(string name)
         {
 
-            User user = await _repository.GetByNameAsync(name);
+            UserDto user = await _repository.GetByNameAsync(name);
 
             if (user == null)
             {

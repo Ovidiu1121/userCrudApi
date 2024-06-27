@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=88be0a6b_002Decc5_002D4235_002Dac5a_002Da9c8a1f8d806/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from TestQueryService.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;767FBB0C-B21F-4ED1-A5C4-E961FE37DC11/d:UnitTests/f:TestQueryService.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;767FBB0C-B21F-4ED1-A5C4-E961FE37DC11/d:UnitTests/f:TestCommandService.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;767FBB0C-B21F-4ED1-A5C4-E961FE37DC11/d:UnitTests/f:TestController.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;767FBB0C-B21F-4ED1-A5C4-E961FE37DC11/d:IntegrationTests/f:UserIntegrationTests.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

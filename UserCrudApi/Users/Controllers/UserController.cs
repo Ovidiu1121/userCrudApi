@@ -20,13 +20,13 @@ namespace UserCrudApi.Users.Controllers
             _userQueryService = userQueryService;
         }
 
-        public override async Task<ActionResult<User>> CreateUser([FromBody] CreateUserRequest request)
+        public override async Task<ActionResult<UserDto>> CreateUser([FromBody] CreateUserRequest request)
         {
             try
             {
                 var users = await _userCommandService.CreateUser(request);
 
-                return Ok(users);
+                return Created("Userul a fost adaugat",users);
             }
             catch (ItemAlreadyExists ex)
             {
@@ -34,7 +34,7 @@ namespace UserCrudApi.Users.Controllers
             }
         }
 
-        public override async Task<ActionResult<User>> DeleteUser([FromRoute] int id)
+        public override async Task<ActionResult<UserDto>> DeleteUser([FromRoute] int id)
         {
             try
             {
@@ -48,7 +48,20 @@ namespace UserCrudApi.Users.Controllers
             }
         }
 
-        public override async Task<ActionResult<IEnumerable<User>>> GetAll()
+        public override async Task<ActionResult<UserDto>> GetByIdRoute(int id)
+        {
+            try
+            {
+                var users = await _userQueryService.GetById(id);
+                return Ok(users);
+            }
+            catch (ItemDoesNotExist ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        public override async Task<ActionResult<ListUserDto>> GetAll()
         {
             try
             {
@@ -61,7 +74,7 @@ namespace UserCrudApi.Users.Controllers
             }
         }
 
-        public override async Task<ActionResult<User>> GetByNameRoute([FromRoute] string name)
+        public override async Task<ActionResult<UserDto>> GetByNameRoute([FromRoute] string name)
         {
             try
             {
@@ -74,7 +87,7 @@ namespace UserCrudApi.Users.Controllers
             }
         }
 
-        public override async Task<ActionResult<User>> UpdateUser([FromRoute] int id, [FromBody] UpdateUserRequest request)
+        public override async Task<ActionResult<UserDto>> UpdateUser([FromRoute] int id, [FromBody] UpdateUserRequest request)
         {
             try
             {

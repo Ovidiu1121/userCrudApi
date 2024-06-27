@@ -10,6 +10,7 @@ namespace UserCrudApi.Mappings
         {
             CreateMap<CreateUserRequest, User>();
             CreateMap<UpdateUserRequest, User>();
+            CreateMap<UserDto, User>().ReverseMap();
         }
     }
 }

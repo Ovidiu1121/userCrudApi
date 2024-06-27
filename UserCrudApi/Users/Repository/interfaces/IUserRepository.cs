@@ -5,12 +5,12 @@ namespace UserCrudApi.Users.Repository.interfaces
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<User>> GetAllAsync();
-        Task<User> GetByIdAsync(int id);
-        Task<User> GetByNameAsync(string name);
-        Task<User> CreateUser(CreateUserRequest request);
-        Task<User> UpdateUser(int id, UpdateUserRequest request);
-        Task<User> DeleteUserById(int id);
+        Task<ListUserDto> GetAllAsync();
+        Task<UserDto> GetByIdAsync(int id);
+        Task<UserDto> GetByNameAsync(string name);
+        Task<UserDto> CreateUser(CreateUserRequest request);
+        Task<UserDto> UpdateUser(int id, UpdateUserRequest request);
+        Task<UserDto> DeleteUserById(int id);
 
     }
 }

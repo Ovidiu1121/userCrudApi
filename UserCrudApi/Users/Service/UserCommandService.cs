@@ -17,9 +17,9 @@ namespace UserCrudApi.Users.Service
             _repository = repository;
         }
 
-        public async Task<User> CreateUser(CreateUserRequest request)
+        public async Task<UserDto> CreateUser(CreateUserRequest request)
         {
-            User user= await _repository.GetByNameAsync(request.Name);
+            UserDto user= await _repository.GetByNameAsync(request.Name);
 
             if (user!=null)
             {
@@ -30,9 +30,9 @@ namespace UserCrudApi.Users.Service
             return user;
         }
 
-        public async Task<User> DeleteUser(int id)
+        public async Task<UserDto> DeleteUser(int id)
         {
-            User user = await _repository.GetByIdAsync(id);
+            UserDto user = await _repository.GetByIdAsync(id);
 
             if (user==null)
             {
@@ -43,9 +43,9 @@ namespace UserCrudApi.Users.Service
             return user;
         }
 
-        public async Task<User> UpdateUser(int id, UpdateUserRequest request)
+        public async Task<UserDto> UpdateUser(int id, UpdateUserRequest request)
         {
-            User user = await _repository.GetByIdAsync(id);
+            UserDto user = await _repository.GetByIdAsync(id);
 
             if (user==null)
             {

@@ -5,8 +5,8 @@ namespace UserCrudApi.Users.Service.interfaces
 {
     public interface IUserCommandService
     {
-        Task<User> CreateUser(CreateUserRequest request);
-        Task<User> UpdateUser(int id, UpdateUserRequest request);
-        Task<User> DeleteUser(int id);
+        Task<UserDto> CreateUser(CreateUserRequest request);
+        Task<UserDto> UpdateUser(int id, UpdateUserRequest request);
+        Task<UserDto> DeleteUser(int id);
     }
 }
